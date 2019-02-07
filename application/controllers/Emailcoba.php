@@ -24,7 +24,7 @@
 				$member->email				
 			);
 			$subject = 'Konfirmasi Pemesanan : '.$get->kode_penjualan;
-			$message .= "
+			$message = "
 				<h3>".$id."</h3>
 				<h4>Tanggal : ".$get->date."</h4>
 				<h3>".$member->nama_member."</h3>

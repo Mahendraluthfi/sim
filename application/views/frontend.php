@@ -33,8 +33,8 @@
               <ul class="nav navbar-nav">
                 <li><a href="<?php echo base_url() ?>">Home</a></li>
                 <li><a href="<?php echo base_url('produk') ?>">Produk</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#contact">Kontak</a></li>                
+                <li><a href="<?php echo base_url('tentang') ?>">Tentang</a></li>
+                <li><a href="<?php echo base_url('kontak') ?>">Kontak</a></li>                
               </ul>
               <form class="navbar-form navbar-right" role="form" action="<?php echo base_url('register/login') ?>" method="POST">
                 <?php if (empty($this->session->userdata('member'))) {

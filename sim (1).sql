@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2019 at 09:33 AM
+-- Generation Time: Feb 07, 2019 at 08:25 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -57,12 +57,26 @@ CREATE TABLE `detail_penjualan` (
   `jml` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `detail_penjualan`
+-- Table structure for table `konfirmasi`
 --
 
-INSERT INTO `detail_penjualan` (`id`, `kode_penjualan`, `id_produk`, `jml`) VALUES
-(15, 'Order-H8K6HCUHV15R', 2, 1);
+CREATE TABLE `konfirmasi` (
+  `kode_penjualan` varchar(20) NOT NULL,
+  `no_rekening` varchar(30) NOT NULL,
+  `atas_nama` varchar(25) NOT NULL,
+  `nominal` int(11) NOT NULL,
+  `foto` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `konfirmasi`
+--
+
+INSERT INTO `konfirmasi` (`kode_penjualan`, `no_rekening`, `atas_nama`, `nominal`, `foto`) VALUES
+('Order-E6WK7PJLQRHX', '123123', 'Wisnu', 89000, 'IMG-07073445.jpg');
 
 -- --------------------------------------------------------
 
@@ -168,15 +182,8 @@ CREATE TABLE `penjualan` (
   `ongkir` int(11) NOT NULL,
   `total_item` int(11) NOT NULL,
   `total` int(11) NOT NULL,
-  `status` enum('PROSES','MENUNGGU PEMBAYARAN','DIKIRIM','') NOT NULL
+  `status` enum('PROSES','MENUNGGU PEMBAYARAN','KONFIRMASI PEMBAYARAN','DIKIRIM') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `penjualan`
---
-
-INSERT INTO `penjualan` (`kode_penjualan`, `id_member`, `date`, `ongkir`, `total_item`, `total`, `status`) VALUES
-('Order-H8K6HCUHV15R', 1, '2019-02-06', 0, 25000, 25000, 'PROSES');
 
 -- --------------------------------------------------------
 
@@ -198,8 +205,8 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga`, `detail`, `foto`, `stok`) VALUES
-(2, 'Sarung XYZ', 25000, 'Ok', 'IMG-27101149.png', 3),
-(3, 'Sarung ABC', 27000, 'Oke dan sip', '', 4),
+(2, 'Sarung XYZ', 25000, 'Ok', 'IMG-27101149.png', 2),
+(3, 'Sarung ABC', 27000, 'Oke dan sip', '', 3),
 (4, 'Sarung 1', 25000, '', '', 3),
 (5, 'Sarung 2', 25000, '', '', 3),
 (6, 'Sarung 3', 27000, '', '', 3);
@@ -277,6 +284,12 @@ ALTER TABLE `detail_penjualan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `konfirmasi`
+--
+ALTER TABLE `konfirmasi`
+  ADD PRIMARY KEY (`kode_penjualan`);
+
+--
 -- Indexes for table `material_produk`
 --
 ALTER TABLE `material_produk`
@@ -344,7 +357,7 @@ ALTER TABLE `bahan_baku`
 -- AUTO_INCREMENT for table `detail_penjualan`
 --
 ALTER TABLE `detail_penjualan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `material_produk`
@@ -386,7 +399,7 @@ ALTER TABLE `produksi`
 -- AUTO_INCREMENT for table `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
