@@ -116,7 +116,7 @@
         </li>    
         <li <?php if ($this->uri->segment(2) == "produksi") {echo "class='active'";} ?>>
           <a href="<?php echo base_url('admin/produksi') ?>">
-            <i class="fa fa-file"></i> <span>Produksi</span>            
+            <i class="fa fa-hourglass-half"></i> <span>Produksi</span>            
           </a>
         </li>
         <li <?php if ($this->uri->segment(2) == "penjualan") {echo "class='active'";} ?>>
