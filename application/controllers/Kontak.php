@@ -5,7 +5,8 @@ class Kontak extends CI_Controller {
 
 	public function index()
 	{
-		
+		$data['content'] = 'kontak';
+		$this->load->view('frontend', $data);
 	}
 
 }

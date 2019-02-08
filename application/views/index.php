@@ -190,6 +190,18 @@
       autoclose: true,
       format : 'yyyy-mm-dd',      
     })  
+  $('#datepicker1').datepicker({
+      autoclose: true,
+      format : 'yyyy-mm-dd',      
+    })  
+  $('#datepicker2').datepicker({
+      autoclose: true,
+      format : 'yyyy-mm-dd',      
+    })  
+  $('#datepicker3').datepicker({
+      autoclose: true,
+      format : 'yyyy-mm-dd',      
+    })  
   // $('select').select2();     
 
 </script>

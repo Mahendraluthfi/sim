@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2019 at 08:25 AM
+-- Generation Time: Feb 08, 2019 at 02:09 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -56,6 +56,14 @@ CREATE TABLE `detail_penjualan` (
   `id_produk` int(11) NOT NULL,
   `jml` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detail_penjualan`
+--
+
+INSERT INTO `detail_penjualan` (`id`, `kode_penjualan`, `id_produk`, `jml`) VALUES
+(1, 'Order-MUPSMZZ5ZM9E', 6, 1),
+(2, 'Order-MUPSMZZ5ZM9E', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -185,6 +193,13 @@ CREATE TABLE `penjualan` (
   `status` enum('PROSES','MENUNGGU PEMBAYARAN','KONFIRMASI PEMBAYARAN','DIKIRIM') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `penjualan`
+--
+
+INSERT INTO `penjualan` (`kode_penjualan`, `id_member`, `date`, `ongkir`, `total_item`, `total`, `status`) VALUES
+('Order-MUPSMZZ5ZM9E', 1, '2019-02-07', 0, 54000, 54000, 'PROSES');
+
 -- --------------------------------------------------------
 
 --
@@ -205,11 +220,11 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga`, `detail`, `foto`, `stok`) VALUES
-(2, 'Sarung XYZ', 25000, 'Ok', 'IMG-27101149.png', 2),
-(3, 'Sarung ABC', 27000, 'Oke dan sip', '', 3),
-(4, 'Sarung 1', 25000, '', '', 3),
-(5, 'Sarung 2', 25000, '', '', 3),
-(6, 'Sarung 3', 27000, '', '', 3);
+(2, 'Sarung XYZ', 25000, 'Warna Coklat', 'IMG-07171604.jpeg', 2),
+(3, 'Sarung ABC', 27000, 'Warna Biru', 'IMG-07171611.jpeg', 2),
+(4, 'Sarung 1', 25000, 'Warna Merah', 'IMG-07171620.jpeg', 3),
+(5, 'Sarung 2', 25000, 'Warna Merah Cerah', 'IMG-07171702.jpeg', 3),
+(6, 'Sarung 3', 27000, 'Warna Coklat', 'IMG-07171934.jpeg', 2);
 
 -- --------------------------------------------------------
 
@@ -357,7 +372,7 @@ ALTER TABLE `bahan_baku`
 -- AUTO_INCREMENT for table `detail_penjualan`
 --
 ALTER TABLE `detail_penjualan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `material_produk`
@@ -399,7 +414,7 @@ ALTER TABLE `produksi`
 -- AUTO_INCREMENT for table `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`

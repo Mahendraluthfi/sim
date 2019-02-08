@@ -10,6 +10,7 @@ class Laporan extends CI_Controller {
 	    {	     
 	        redirect('admin/login');
 	    }	    
+	    $this->load->model('mlaporan');
 	}
 
 	public function index()
@@ -18,6 +19,25 @@ class Laporan extends CI_Controller {
 		$this->load->view('index', $data);			
 	}
 
+	public function produksi()
+	{
+		$dt = $this->input->post();
+		$data['content'] = 'laporan_produksi';
+		$data['ta'] = $dt['ta'];
+		$data['tb'] = $dt['tb'];
+		$data['result'] = $this->mlaporan->produksi($dt['ta'],$dt['tb'])->result();
+		$this->load->view('index', $data);
+	}
+
+	public function penjualan()
+	{
+		$dt = $this->input->post();
+		$data['content'] = 'laporan_penjualan';
+		$data['ta'] = $dt['ta'];
+		$data['tb'] = $dt['tb'];
+		$data['result'] = $this->mlaporan->penjualan($dt['ta'],$dt['tb'])->result();
+		$this->load->view('index', $data);
+	}
 }
 
 /* End of file Laporan.php */

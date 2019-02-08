@@ -5,7 +5,8 @@ class Tentang extends CI_Controller {
 
 	public function index()
 	{
-		
+		$data['content'] = 'tentang';
+		$this->load->view('frontend', $data);
 	}
 
 }

@@ -28,7 +28,7 @@ class Produk extends CI_Controller {
         $config['allowed_types']        = 'gif|jpg|png|jpeg';
         $config['max_size']             = 2048;
         $config['max_width']            = 1900;
-        $config['max_height']           = 1200;
+        $config['max_height']           = 1280;
         $config['file_name'] 			= $nmfile;         
 
         $this->load->library('upload', $config);
@@ -66,7 +66,7 @@ class Produk extends CI_Controller {
         $config['allowed_types']        = 'gif|jpg|png|jpeg';
         $config['max_size']             = 2048;
         $config['max_width']            = 1900;
-        $config['max_height']           = 1200;
+        $config['max_height']           = 1280;
         $config['file_name'] 			= $nmfile;         
 
         $this->load->library('upload', $config);
